@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.SortedMap;
 import javax.annotation.concurrent.NotThreadSafe;
 
-import org.apache.kudu.annotations.InterfaceAudience;
-import org.apache.kudu.annotations.InterfaceStability;
+import org.apache.yetus.audience.InterfaceAudience;
+import org.apache.yetus.audience.InterfaceStability;
 import org.apache.kudu.client.ExternalConsistencyMode;
 import org.apache.kudu.client.KuduSession;
 import org.apache.kudu.client.OperationResponse;
@@ -128,6 +128,18 @@ public class WriteBatch implements SessionConfiguration {
   @Override
   public void setIgnoreAllDuplicateRows(boolean ignoreAllDuplicateRows) {
     session.setIgnoreAllDuplicateRows(ignoreAllDuplicateRows);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void setIgnoreAllNotFoundRows(boolean ignore) {
+    session.setIgnoreAllNotFoundRows(ignore);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public boolean isIgnoreAllNotFoundRows() {
+    return session.isIgnoreAllNotFoundRows();
   }
 
   /** {@inheritDoc} */

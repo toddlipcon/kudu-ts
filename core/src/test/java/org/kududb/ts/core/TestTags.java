@@ -10,11 +10,10 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.junit.Test;
-import org.apache.kudu.client.BaseKuduTest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TestTags extends BaseKuduTest {
+public class TestTags extends BaseTest {
   private static final Logger LOG = LoggerFactory.getLogger(TestTags.class);
 
   /** Builds a tagset from the provided tags. */
@@ -29,7 +28,7 @@ public class TestTags extends BaseKuduTest {
 
   @Test
   public void testGetTagsetIDsForTag() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testGetTagsetIDsForTag",
                                          CreateOptions.defaults())) {
       Tags tags = ts.getTags();
@@ -51,7 +50,7 @@ public class TestTags extends BaseKuduTest {
 
   @Test
   public void testGetTagsetIDsForTags() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testGetTagsetIDsForTags",
                                          CreateOptions.defaults())) {
       Tags tags = ts.getTags();

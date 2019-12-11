@@ -25,7 +25,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import javax.annotation.concurrent.ThreadSafe;
 
-import org.apache.kudu.annotations.InterfaceAudience;
+import org.apache.yetus.audience.InterfaceAudience;
 import org.apache.kudu.client.AbstractionBulldozer;
 import org.apache.kudu.client.AsyncKuduClient;
 import org.apache.kudu.client.AsyncKuduScanner;

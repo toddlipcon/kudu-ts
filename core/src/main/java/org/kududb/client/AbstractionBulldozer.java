@@ -12,7 +12,7 @@ public final class AbstractionBulldozer {
    */
   public static <S extends AbstractKuduScannerBuilder<S, T>, T> AbstractKuduScannerBuilder<S, T>
   sortResultsByPrimaryKey(AbstractKuduScannerBuilder<S, T> builder) {
-    builder.sortResultsByPrimaryKey();
+    builder.setFaultTolerant(true);
     return builder;
   }
 }

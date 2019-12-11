@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.SortedMap;
 import javax.annotation.concurrent.ThreadSafe;
 
-import org.apache.kudu.annotations.InterfaceAudience;
+import org.apache.yetus.audience.InterfaceAudience;
 import org.apache.kudu.client.AsyncKuduClient;
 import org.apache.kudu.client.AsyncKuduScanner;
 import org.apache.kudu.client.AsyncKuduSession;

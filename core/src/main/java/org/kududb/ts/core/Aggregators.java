@@ -4,8 +4,8 @@ import com.google.common.base.MoreObjects;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
-import org.apache.kudu.annotations.InterfaceAudience;
-import org.apache.kudu.annotations.InterfaceStability;
+import org.apache.yetus.audience.InterfaceAudience;
+import org.apache.yetus.audience.InterfaceStability;
 
 @InterfaceAudience.Public
 @InterfaceStability.Evolving

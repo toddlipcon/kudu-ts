@@ -4,7 +4,7 @@ import com.google.common.base.MoreObjects;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
-import org.apache.kudu.annotations.InterfaceAudience;
+import org.apache.yetus.audience.InterfaceAudience;
 
 /**
  * An {@code Interpolation} wraps a {@link Datapoints} and provides interpolated

@@ -11,13 +11,15 @@ import java.util.Random;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.junit.Test;
-import org.apache.kudu.client.BaseKuduTest;
 import org.apache.kudu.client.SessionConfiguration;
+import org.apache.kudu.test.KuduTestHarness;
+
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TestKuduTS extends BaseKuduTest {
+
+public class TestKuduTS extends BaseTest {
   private static final Logger LOG = LoggerFactory.getLogger(TestKuduTS.class);
 
   private final Random rand = new Random();
@@ -82,14 +84,14 @@ public class TestKuduTS extends BaseKuduTest {
 
   @Test
   public void testCreateAndOpen() throws Exception {
-    try (KuduTS tsdb = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS tsdb = KuduTS.openOrCreate(getMasterAddresses(),
                                            "testCreateAndOpen",
                                            CreateOptions.defaults())) {
 
 
 
     }
-    try (KuduTS tsdb = KuduTS.open(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS tsdb = KuduTS.open(getMasterAddresses(),
                                    "testCreateAndOpen")) {}
   }
 
@@ -97,7 +99,7 @@ public class TestKuduTS extends BaseKuduTest {
   /** Tests querying an empty series. */
   @Test
   public void testEmptySeries() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testEmptySeries",
                                          CreateOptions.defaults())) {
       String metric = "m";
@@ -116,7 +118,7 @@ public class TestKuduTS extends BaseKuduTest {
   /** Tests writing and querying a single series with no downsampling. */
   @Test
   public void testSingleSeries() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testSingleSeries",
                                          CreateOptions.defaults())) {
       WriteBatch batch = ts.writeBatch();
@@ -145,7 +147,7 @@ public class TestKuduTS extends BaseKuduTest {
    */
   @Test
   public void testMultipleSeries() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testMultipleSeries",
                                          CreateOptions.defaults())) {
       WriteBatch batch = ts.writeBatch();
@@ -194,7 +196,7 @@ public class TestKuduTS extends BaseKuduTest {
   /** Tests writing and querying a single series with downsampling. */
   @Test
   public void testSingleSeriesDownsample() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testSingleSeriesDownsample",
                                          CreateOptions.defaults())) {
       WriteBatch batch = ts.writeBatch();
@@ -238,7 +240,7 @@ public class TestKuduTS extends BaseKuduTest {
   /** Tests writing and querying two series with interpolation. */
   @Test
   public void testMultipleSeriesWithInterpolation() throws Exception {
-    try (KuduTS ts = KuduTS.openOrCreate(ImmutableList.of(getMasterAddresses()),
+    try (KuduTS ts = KuduTS.openOrCreate(getMasterAddresses(),
                                          "testMultipleSeriesWithInterpolation",
                                          CreateOptions.defaults())) {
       WriteBatch batch = ts.writeBatch();

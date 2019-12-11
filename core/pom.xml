@@ -20,8 +20,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.kudu</groupId>
-      <artifactId>interface-annotations</artifactId>
+      <groupId>org.apache.yetus</groupId>
+      <artifactId>audience-annotations</artifactId>
     </dependency>
 
     <dependency>
@@ -64,7 +64,20 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.kudu</groupId>
+      <artifactId>kudu-test-utils</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kudu</groupId>
+      <artifactId>kudu-binary</artifactId>
+      <classifier>${os.detected.classifier}</classifier>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -124,5 +137,14 @@
         </executions>
       </plugin>
     </plugins>
+    <extensions>
+      <!-- Used to find the right kudu-binary artifact with the Maven
+           property ${os.detected.classifier} -->
+      <extension>
+        <groupId>kr.motd.maven</groupId>
+        <artifactId>os-maven-plugin</artifactId>
+        <version>1.6.2</version>
+      </extension>
+    </extensions>
   </build>
 </project>
