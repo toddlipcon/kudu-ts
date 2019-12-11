@@ -1,6 +1,6 @@
 # Kudu TS
 
-Kudu TS is a metrics and time series database built on Apache Kudu (incubating).
+Kudu TS is a metrics and time series database built on Apache Kudu.
 Kudu's focus on real time data ingestion combined with fast scans makes it an
 ideal platform for storing and querying time series data. Kudu TS includes
 connectors for popular metrics and alerting tools.
@@ -27,7 +27,7 @@ run into any issues, please do not hesitate to open a GitHub issue.
 
 ## What is Kudu
 
-[Apache Kudu (incubating)](https://getkudu.io) is a distributed, columnar
+[Apache Kudu](https://kudu.apache.org) is a distributed, columnar
 storage engine for analytics on fast moving data. Kudu provides real time
 ingestion with extremely fast scan capability. Kudu's columnar on-disk format
 makes it extremely efficient at scanning, filtering, and aggregating large time
